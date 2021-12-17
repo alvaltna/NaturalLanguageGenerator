@@ -1,0 +1,77 @@
+Diagram %s kirjeldab %s %s
+Diagram %s on tühi
+ja suhteid nende vahel
+%s iseloomustab %s %s, mis on tüüpi %s %s
+%s võib iseloomustada %s %s, mis on tüüpi %s %s
+algväärtusega %s
+%s on %s
+%s võib olla %s
+%s kasutab %s
+%s on kasutatud %s poolt
+%s sõltub %s
+Iga %s %s mitmete %s
+Iga %s %s mitme %s
+Mõni %s %s mitte ühegi %s
+Iga %s %s mitme %s
+Iga %s %s vähemalt ühe %s
+Iga %s %s täpselt %s %s
+Iga %s %s koige rohkem ühe %s
+Mõni %s %s %s
+Iga %s %s kõige rohkem %s %s
+Moni %s %s ühegi %s
+Iga %s %s kõige rohkem %s %s
+Iga %s %s vähemalt ühe %s
+Iga %s %s kõige rohkem %s %s
+Iga %s %s vähemalt %s %s
+Iga %s %s mitme %s
+Iga %s %s vähemalt %s %s
+%s saab %s
+%s on seotud %s
+Märge: %s
+Piirang: %s
+%s omab %s
+%s kuulub %s
+omab
+ei oma
+võib omada
+peab omama
+kuulub
+ei kuulu ühtegi
+võib kuuluda
+peab kuuluma
+kui %s
+Iga %s peab omama vähemalt ühte %s tüüpi järgnevatest: %s
+Iga %s võib samal ajal omada rohkem kui ühte %s tüüpi järgnevatest: %s
+Iga %s võib samal ajal omada ainult ühte %s tüüpi järgnevatest: %s
+Iga %s ei pea omama %s tüüpi järgnevatest: %s
+Iga %s peab omama %s tüüpi %s
+%s on osa %s ja ei saa eksisteerida ilma selleta. Kui %s on kustutatud, siis %s peaks samuti olema kustutatud
+on seotud
+võib olla seotud
+peab olema seotud
+ei ole seotud
+%s on vaja, et teostada %s
+mitu
+kuni
+DIAGRAMM
+SISSEJUHATAVAD MÄRKUSED
+ARTIFAKTID
+ELEMENTIDE KIRJELDUSED
+ÜHENDAJAD
+LISAVAD MÄRKUSED
+Klass
+Liides
+Kasutusjuht
+Element
+null
+üks
+kaks
+kolm
+neli
+viis
+kuus
+seitse
+kaheksa
+üheksa
+Pakk %s
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="Intellij.main" target="11" />
+      <module name="Intellij.test" target="11" />
+      <module name="IntelliJ_Projects.main" target="11" />
+      <module name="IntelliJ_Projects.test" target="11" />
+      <module name="NaturalLangua.main" target="11" />
+      <module name="NaturalLangua.test" target="11" />
+      <module name="NaturalLanguage.main" target="11" />
+      <module name="NaturalLanguage.test" target="11" />
+      <module name="NaturalLanguageGenera.main" target="11" />
+      <module name="NaturalLanguageGenera.test" target="11" />
+      <module name="NaturalLanguageGenerator.main" target="11" />
+      <module name="NaturalLanguageGenerator.test" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
