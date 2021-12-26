@@ -1,5 +1,5 @@
-Diagram %s kirjeldab %s %s
-Diagram %s on tühi
+Skeem %s kirjeldab %s %s
+Skeem %s on tühi
 ja suhteid nende vahel
 %s iseloomustab %s %s, mis on tüüpi %s %s
 %s võib iseloomustada %s %s, mis on tüüpi %s %s
@@ -53,11 +53,11 @@ ei ole seotud
 %s on vaja, et teostada %s
 mitu
 kuni
-DIAGRAMM
+SKEEM
 SISSEJUHATAVAD MÄRKUSED
 ARTIFAKTID
 ELEMENTIDE KIRJELDUSED
-ÜHENDAJAD
+ÜHNDAJAD
 LISAVAD MÄRKUSED
 Klass
 Liides
@@ -73,5 +73,5 @@ kuus
 seitse
 kaheksa
 üheksa
-Pakk %s
+Pakett %s
 

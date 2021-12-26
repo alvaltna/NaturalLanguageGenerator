@@ -1,22 +1,132 @@
-{"diagram":"Test", "elements" : [
-{"elementId": "146", "type" : "Class", "name": "Töötaja", "note": "", 
+{"diagram":"Laudade register", "elements" : [
+{"elementId": "51", "type" : "Class", "name": "Töötaja", "note": "", 
+"connectors" : [
+{
+"sourceId": "51", "endId": "50", "sourceName": "Töötaja", "endName": "Isik", "type": "Generalization", "stereotype": "", "startMultiplicity": "", "endMultiplicity": "", "connectorId": "36", "connectorName": "", "targetRole": "", "sourceRole": ""
+}, 
+{
+"sourceId": "47", "endId": "51", "sourceName": "Amet", "endName": "Töötaja", "type": "Association", "stereotype": "", "startMultiplicity": "1", "endMultiplicity": "0..*", "connectorId": "37", "connectorName": "", "targetRole": "", "sourceRole": ""
+}, 
+{
+"sourceId": "45", "endId": "51", "sourceName": "Töötaja_seisundi_liik", "endName": "Töötaja", "type": "Association", "stereotype": "", "startMultiplicity": "1", "endMultiplicity": "0..*", "connectorId": "38", "connectorName": "", "targetRole": "", "sourceRole": ""
+}, 
+{
+"sourceId": "51", "endId": "53", "sourceName": "Töötaja", "endName": "Laud", "type": "Association", "stereotype": "", "startMultiplicity": "1", "endMultiplicity": "0..*", "connectorId": "39", "connectorName": "registreerib", "targetRole": "", "sourceRole": ""
+}, 
+{
+"sourceId": "51", "endId": "51", "sourceName": "Töötaja", "endName": "Töötaja", "type": "Association", "stereotype": "", "startMultiplicity": "0..*", "endMultiplicity": "0..1", "connectorId": "90", "connectorName": "", "targetRole": "mentor", "sourceRole": "juhendatav"
+}
+], 
+"attributes" : [
+],
+"methods" : [
+],
+"comments" : []
+}, 
+{"elementId": "53", "type" : "Class", "name": "Laud", "note": "", 
+"connectors" : [
+{
+"sourceId": "51", "endId": "53", "sourceName": "Töötaja", "endName": "Laud", "type": "Association", "stereotype": "", "startMultiplicity": "1", "endMultiplicity": "0..*", "connectorId": "39", "connectorName": "registreerib", "targetRole": "", "sourceRole": ""
+}, 
+{
+"sourceId": "53", "endId": "44", "sourceName": "Laud", "endName": "Laua_seisundi_liik", "type": "Association", "stereotype": "", "startMultiplicity": "0..*", "endMultiplicity": "1", "connectorId": "40", "connectorName": "", "targetRole": "", "sourceRole": ""
+}, 
+{
+"sourceId": "53", "endId": "48", "sourceName": "Laud", "endName": "Laua_kategooria", "type": "Association", "stereotype": "", "startMultiplicity": "0..*", "endMultiplicity": "0..*", "connectorId": "42", "connectorName": "", "targetRole": "", "sourceRole": ""
+}, 
+{
+"sourceId": "73", "endId": "53", "sourceName": "Laua_bränd", "endName": "Laud", "type": "Association", "stereotype": "", "startMultiplicity": "0..1", "endMultiplicity": "0..*", "connectorId": "76", "connectorName": "", "targetRole": "", "sourceRole": ""
+}
+], 
+"attributes" : [
+{"name":"laua_kood", "type": "int", "initialValue":"", "lowerBound": "1", "upperBound": "1"
+}, 
+{"name":"kommentaar", "type": "char", "initialValue":"", "lowerBound": "0", "upperBound": "1"
+}, 
+{"name":"reg_aeg", "type": "timestamp", "initialValue":"", "lowerBound": "1", "upperBound": "1"
+}, 
+{"name":"laua_võrgu_kõrgus", "type": "int", "initialValue":"153", "lowerBound": "1", "upperBound": "1"
+}, 
+{"name":"max_mängijate_arv", "type": "int", "initialValue":"2", "lowerBound": "1", "upperBound": "1"
+}
+],
+"methods" : [
+],
+"comments" : []
+}, 
+{"elementId": "44", "type" : "Class", "name": "Laua_seisundi_liik", "note": "", 
+"connectors" : [
+{
+"sourceId": "44", "endId": "42", "sourceName": "Laua_seisundi_liik", "endName": "Klassifikaator", "type": "Generalization", "stereotype": "", "startMultiplicity": "", "endMultiplicity": "", "connectorId": "29", "connectorName": "", "targetRole": "", "sourceRole": ""
+}, 
+{
+"sourceId": "53", "endId": "44", "sourceName": "Laud", "endName": "Laua_seisundi_liik", "type": "Association", "stereotype": "", "startMultiplicity": "0..*", "endMultiplicity": "1", "connectorId": "40", "connectorName": "", "targetRole": "", "sourceRole": ""
+}
+], 
+"attributes" : [
+],
+"methods" : [
+],
+"comments" : []
+}, 
+{"elementId": "48", "type" : "Class", "name": "Laua_kategooria", "note": "", 
+"connectors" : [
+{
+"sourceId": "48", "endId": "42", "sourceName": "Laua_kategooria", "endName": "Klassifikaator", "type": "Generalization", "stereotype": "", "startMultiplicity": "", "endMultiplicity": "", "connectorId": "33", "connectorName": "", "targetRole": "", "sourceRole": ""
+}, 
+{
+"sourceId": "53", "endId": "48", "sourceName": "Laud", "endName": "Laua_kategooria", "type": "Association", "stereotype": "", "startMultiplicity": "0..*", "endMultiplicity": "0..*", "connectorId": "42", "connectorName": "", "targetRole": "", "sourceRole": ""
+}, 
+{
+"sourceId": "64", "endId": "48", "sourceName": "Laua_kategooria_tüüp", "endName": "Laua_kategooria", "type": "Association", "stereotype": "", "startMultiplicity": "1", "endMultiplicity": "0..*", "connectorId": "65", "connectorName": "", "targetRole": "", "sourceRole": ""
+}
+], 
+"attributes" : [
+],
+"methods" : [
+],
+"comments" : []
+}, 
+{"elementId": "54", "type" : "Class", "name": "Laua_kategooria_omamine", "note": "", 
 "connectors" : [
 ], 
 "attributes" : [
-{"name":"Eesnimi", "type": "char", "initialValue":"", "lowerBound": "1", "upperBound": "1"
+],
+"methods" : [
+],
+"comments" : []
 }, 
-{"name":"Email", "type": "char", "initialValue":"", "lowerBound": "0", "upperBound": "*"
+{"elementId": "73", "type" : "Class", "name": "Laua_bränd", "note": "", 
+"connectors" : [
+{
+"sourceId": "73", "endId": "42", "sourceName": "Laua_bränd", "endName": "Klassifikaator", "type": "Generalization", "stereotype": "", "startMultiplicity": "", "endMultiplicity": "", "connectorId": "75", "connectorName": "", "targetRole": "", "sourceRole": ""
 }, 
-{"name":"Perenimi", "type": "char", "initialValue":"", "lowerBound": "1", "upperBound": "1"
-}, 
-{"name":"Vanus", "type": "int", "initialValue":"22", "lowerBound": "1", "upperBound": "1"
+{
+"sourceId": "73", "endId": "53", "sourceName": "Laua_bränd", "endName": "Laud", "type": "Association", "stereotype": "", "startMultiplicity": "0..1", "endMultiplicity": "0..*", "connectorId": "76", "connectorName": "", "targetRole": "", "sourceRole": ""
 }
+], 
+"attributes" : [
+],
+"methods" : [
+],
+"comments" : []
+}, 
+{"elementId": "64", "type" : "Class", "name": "Laua_kategooria_tüüp", "note": "", 
+"connectors" : [
+{
+"sourceId": "64", "endId": "48", "sourceName": "Laua_kategooria_tüüp", "endName": "Laua_kategooria", "type": "Association", "stereotype": "", "startMultiplicity": "1", "endMultiplicity": "0..*", "connectorId": "65", "connectorName": "", "targetRole": "", "sourceRole": ""
+}, 
+{
+"sourceId": "64", "endId": "42", "sourceName": "Laua_kategooria_tüüp", "endName": "Klassifikaator", "type": "Generalization", "stereotype": "", "startMultiplicity": "", "endMultiplicity": "", "connectorId": "66", "connectorName": "", "targetRole": "", "sourceRole": ""
+}
+], 
+"attributes" : [
 ],
 "methods" : [
 ],
 "comments" : []
 }
 ],
-"smallestClassYCoord": "-200",
-"generalizationSetsString": "GUID={BAC79F25-507A-4428-8B77-C2059D017622};Name=Isiku roll1;IsCovering=1;IsDisjoint=1;PowerTypeGUID=;169@GUID={0675D770-BF0D-4261-8945-7B119670D163};Name=Kodaniku roll;IsCovering=0;IsDisjoint=0;PowerTypeGUID=;167@GUID={BAC79F25-507A-4428-8B77-C2059D017622};Name=Isiku roll1;IsCovering=1;IsDisjoint=1;PowerTypeGUID=;227@GUID={BAC79F25-507A-4428-8B77-C2059D017622};Name=Isiku roll1;IsCovering=1;IsDisjoint=1;PowerTypeGUID=;166@GUID={83658791-12A5-4136-B2C1-790DA043168E};Name=Isik on;IsCovering=0;IsDisjoint=1;PowerTypeGUID=;214@GUID={83658791-12A5-4136-B2C1-790DA043168E};Name=Isik on;IsCovering=0;IsDisjoint=1;PowerTypeGUID=;215@GUID={BAC79F25-507A-4428-8B77-C2059D017622};Name=Isiku roll1;IsCovering=1;IsDisjoint=1;PowerTypeGUID=;,GUID={1B7A470E-E81C-490e-AB79-513889608D01};Name=Isiku roll;IsCovering=1;IsDisjoint=1;PowerTypeGUID=;168@"
+"smallestClassYCoord": "-502",
+"generalizationSetsString": "GUID={572C17BF-B972-462c-A7D6-1B2DD0CEFE21};Name=Klassifikaatori tüüp;IsCovering=1;IsDisjoint=1;PowerTypeGUID=;66-Laua_kategooria_tüüp-Klassifikaator@GUID={572C17BF-B972-462c-A7D6-1B2DD0CEFE21};Name=Klassifikaatori tüüp;IsCovering=1;IsDisjoint=1;PowerTypeGUID=;33-Laua_kategooria-Klassifikaator@GUID={572C17BF-B972-462c-A7D6-1B2DD0CEFE21};Name=Klassifikaatori tüüp;IsCovering=1;IsDisjoint=1;PowerTypeGUID=;32-Amet-Klassifikaator@GUID={572C17BF-B972-462c-A7D6-1B2DD0CEFE21};Name=Klassifikaatori tüüp;IsCovering=1;IsDisjoint=1;PowerTypeGUID=;31-Isiku_seisundi_liik-Klassifikaator@GUID={572C17BF-B972-462c-A7D6-1B2DD0CEFE21};Name=Klassifikaatori tüüp;IsCovering=1;IsDisjoint=1;PowerTypeGUID=;30-Töötaja_seisundi_liik-Klassifikaator@GUID={572C17BF-B972-462c-A7D6-1B2DD0CEFE21};Name=Klassifikaatori tüüp;IsCovering=1;IsDisjoint=1;PowerTypeGUID=;29-Laua_seisundi_liik-Klassifikaator@GUID={572C17BF-B972-462c-A7D6-1B2DD0CEFE21};Name=Klassifikaatori tüüp;IsCovering=1;IsDisjoint=1;PowerTypeGUID=;28-Riik-Klassifikaator@GUID={FA301467-1C76-4ae8-87F4-A89965B20903};Name=Isiku roll;IsCovering=0;IsDisjoint=0;PowerTypeGUID=;36-Töötaja-Isik@GUID={FA301467-1C76-4ae8-87F4-A89965B20903};Name=Isiku roll;IsCovering=0;IsDisjoint=0;PowerTypeGUID=;70-Klient-Isik@GUID={572C17BF-B972-462c-A7D6-1B2DD0CEFE21};Name=Klassifikaatori tüüp;IsCovering=1;IsDisjoint=1;PowerTypeGUID=;72-Kliendi_seisundi_liik-Klassifikaator@GUID={572C17BF-B972-462c-A7D6-1B2DD0CEFE21};Name=Klassifikaatori tüüp;IsCovering=1;IsDisjoint=1;PowerTypeGUID=;75-Laua_bränd-Klassifikaator@"
 }
