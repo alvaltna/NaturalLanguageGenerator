@@ -5,6 +5,7 @@ By default software is capable of generating sentences in English and Estonian l
 In addition to that there is support for adding new languages through the usage of template. 
 Template is used for creating a language file for a new language. 
 Then the language file is used by the software to generate natural language sentences in that language.
+
 #Instructions to install and use
 
 Installation
