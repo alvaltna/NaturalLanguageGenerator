@@ -6,7 +6,7 @@ In addition to that there is support for adding new languages through the usage 
 Template is used for creating a language file for a new language. 
 Then the language file is used by the software to generate natural language sentences in that language.
 
-#Instructions to install and use
+# Instructions to install and use
 
 Installation
 
@@ -84,7 +84,7 @@ By clicking on a button 'Remove' that text file will be deleted. <br/>
 Generating a large amount of sentences from a lot of packages the program may take a bit time. <br/> 
  
 
-#License
+# License
 Copyright 2021 Alvar Valtna
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
