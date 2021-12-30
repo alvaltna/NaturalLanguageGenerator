@@ -1,0 +1,41 @@
+{"diagram":"applicationUI", "elements" : [
+{"elementId": "20", "type" : "Class", "name": "ApplicationUI", "note": "", 
+"connectors" : [
+], 
+"attributes" : [
+],
+"methods" : [
+],
+"comments" : []
+}, 
+{"elementId": "21", "type" : "Class", "name": "FileWatcher", "note": "", 
+"connectors" : [
+{
+"sourceId": "14", "endId": "21", "sourceName": "ParseJson", "endName": "FileWatcher", "type": "Association", "stereotype": "", "startMultiplicity": "1", "endMultiplicity": "", "connectorId": "24", "connectorName": "", "targetRole": "", "sourceRole": ""
+}
+], 
+"attributes" : [
+],
+"methods" : [
+],
+"comments" : []
+}, 
+{"elementId": "14", "type" : "Class", "name": "ParseJson", "note": "", 
+"connectors" : [
+{
+"sourceId": "14", "endId": "16", "sourceName": "ParseJson", "endName": "SentenceWriter", "type": "Association", "stereotype": "", "startMultiplicity": "1", "endMultiplicity": "", "connectorId": "21", "connectorName": "", "targetRole": "", "sourceRole": ""
+}, 
+{
+"sourceId": "14", "endId": "21", "sourceName": "ParseJson", "endName": "FileWatcher", "type": "Association", "stereotype": "", "startMultiplicity": "1", "endMultiplicity": "", "connectorId": "24", "connectorName": "", "targetRole": "", "sourceRole": ""
+}
+], 
+"attributes" : [
+],
+"methods" : [
+],
+"comments" : []
+}
+],
+"smallestClassYCoord": "-99",
+"generalizationSetsString": ""
+}

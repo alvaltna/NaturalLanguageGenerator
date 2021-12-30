@@ -1,50 +1,46 @@
-com/example/jsonparserclass/Method.java
- com.example.jsonparserclass.Method
-com/example/jsonparserclass/Package.java
- com.example.jsonparserclass.Package
-com/example/jsonparserclass/Comment.java
- com.example.jsonparserclass.Comment
-com/example/jsonparserclass/UnknownElement.java
- com.example.jsonparserclass.UnknownElement
-com/example/jsonparserclass/Connector.java
- com.example.jsonparserclass.Connector
-com/example/sentenceGeneratorClass/Phrases.java
- com.example.sentenceGeneratorClass.Phrases
-com/example/jsonparserclass/Attribute.java
- com.example.jsonparserclass.Attribute
-com/example/jsonparserclass/Diagram.java
- com.example.jsonparserclass.Diagram
-com/example/jsonparserclass/GeneralizationSet.java
- com.example.jsonparserclass.GeneralizationSet
-com/example/jsonparserclass/ClassType.java
- com.example.jsonparserclass.ClassType
-com/example/jsonparserclass/Artifact.java
- com.example.jsonparserclass.Artifact
-com/example/jsonparserclass/DiagramNote.java
- com.example.jsonparserclass.DiagramNote
-com/example/jsonparserclass/Element.java
- com.example.jsonparserclass.Element
-com/example/sentenceGeneratorClass/SentenceBuilder.java
- com.example.sentenceGeneratorClass.SentenceBuilder
-com/example/sentenceGeneratorClass/Main.java
- com.example.sentenceGeneratorClass.Main
- com.example.sentenceGeneratorClass.Main$1
-com/example/sentenceGeneratorClass/ApplicationUI.java
- com.example.sentenceGeneratorClass.ApplicationUI
- com.example.sentenceGeneratorClass.ApplicationUI$1
- com.example.sentenceGeneratorClass.ApplicationUI$2
- com.example.sentenceGeneratorClass.ApplicationUI$3
- com.example.sentenceGeneratorClass.ApplicationUI$4
- com.example.sentenceGeneratorClass.ApplicationUI$5
- com.example.sentenceGeneratorClass.ApplicationUI$6
- com.example.sentenceGeneratorClass.ApplicationUI$7
- com.example.sentenceGeneratorClass.ApplicationUI$8
-com/example/jsonparserclass/ParseJsonClass.java
- com.example.jsonparserclass.ParseJsonClass
- com.example.jsonparserclass.ParseJsonClass$1
-com/example/sentenceGeneratorClass/SentenceWriter.java
- com.example.sentenceGeneratorClass.SentenceWriter
-com/example/jsonparserclass/Main.java
- com.example.jsonparserclass.Main
-com/example/sentenceGeneratorClass/FileWatcher.java
- com.example.sentenceGeneratorClass.FileWatcher
+com/example/jsonParser/Comment.java
+ com.example.jsonParser.Comment
+com/example/jsonParser/Package.java
+ com.example.jsonParser.Package
+com/example/applicationUI/FileWatcher.java
+ com.example.applicationUI.FileWatcher
+com/example/applicationUI/ApplicationUI.java
+ com.example.applicationUI.ApplicationUI
+ com.example.applicationUI.ApplicationUI$1
+ com.example.applicationUI.ApplicationUI$2
+ com.example.applicationUI.ApplicationUI$3
+ com.example.applicationUI.ApplicationUI$4
+ com.example.applicationUI.ApplicationUI$5
+ com.example.applicationUI.ApplicationUI$6
+ com.example.applicationUI.ApplicationUI$7
+ com.example.applicationUI.ApplicationUI$8
+com/example/jsonParser/Connector.java
+ com.example.jsonParser.Connector
+com/example/jsonParser/Attribute.java
+ com.example.jsonParser.Attribute
+com/example/jsonParser/Diagram.java
+ com.example.jsonParser.Diagram
+com/example/sentenceGenerator/SentenceWriter.java
+ com.example.sentenceGenerator.SentenceWriter
+com/example/sentenceGenerator/SentenceBuilder.java
+ com.example.sentenceGenerator.SentenceBuilder
+com/example/jsonParser/Artifact.java
+ com.example.jsonParser.Artifact
+com/example/jsonParser/ClassType.java
+ com.example.jsonParser.ClassType
+com/example/jsonParser/GeneralizationSet.java
+ com.example.jsonParser.GeneralizationSet
+com/example/jsonParser/Method.java
+ com.example.jsonParser.Method
+com/example/jsonParser/ParseJson.java
+ com.example.jsonParser.ParseJson
+ com.example.jsonParser.ParseJson$1
+com/example/jsonParser/Element.java
+ com.example.jsonParser.Element
+com/example/Main.java
+ com.example.Main
+ com.example.Main$1
+com/example/jsonParser/DiagramNote.java
+ com.example.jsonParser.DiagramNote
+com/example/sentenceGenerator/Phrases.java
+ com.example.sentenceGenerator.Phrases

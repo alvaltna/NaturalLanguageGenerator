@@ -20,7 +20,6 @@ public class Main {
         SentenceWriter sentenceWriter = new SentenceWriter(phrases, parser);
         ApplicationUI applicationUI = new ApplicationUI(sentenceWriter);
         applicationUI.homeView();
-
         TimerTask task = new FileWatcher(parser) {
             protected void onChange( File file ) {
 
