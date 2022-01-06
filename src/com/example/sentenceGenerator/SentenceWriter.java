@@ -24,8 +24,9 @@ public class SentenceWriter {
     public void writePackageSentences() {
 
         for(Package eaPackage: packages) {
-            generatedNaturalLanguage += String.format(phrases.getPackageName(), eaPackage.getPackageName())
-                    + "----------------------------------------------------------------------------------------------------------"
+
+            generatedNaturalLanguage += "----------------------------------------------------------------------------------------------------------" +
+                    String.format(phrases.getPackageName(), eaPackage.getPackageName())
                     + "<br/><br/>";
             for(Diagram eaDiagram : eaPackage.getDiagrams()) {
                 this.diagram = eaDiagram;
@@ -108,27 +109,34 @@ public class SentenceWriter {
     }
 
     public void diagramIntroductoryNotes() {
-        generatedNaturalLanguage += phrases.getIntroductoryCommentsLabel() + "<br/><br/>";
-        for (String note : sentenceBuilder.getDiagramIntroductoryNotes()) {
-            generatedNaturalLanguage += note + ".";
+        if (sentenceBuilder.getDiagramIntroductoryNotes().size() > 0) {
+
+            generatedNaturalLanguage += phrases.getIntroductoryCommentsLabel() + "<br/><br/>";
+            for (String note : sentenceBuilder.getDiagramIntroductoryNotes()) {
+                generatedNaturalLanguage += note + ".";
+                generatedNaturalLanguage += "<br/>";
+            }
             generatedNaturalLanguage += "<br/>";
         }
-        generatedNaturalLanguage += "<br/>";
+
     }
 
     public void diagramArtifacts() {
+        if (sentenceBuilder.getDescribeArtifacts().size() > 0) {
 
-        generatedNaturalLanguage += phrases.getArtifactsLabel() + "<br/><br/>";
-        for(Map.Entry<Integer, String> entry : sentenceBuilder.getDescribeArtifacts().entrySet()) {
-            generatedNaturalLanguage += entry.getValue() + ".";
+            generatedNaturalLanguage += phrases.getArtifactsLabel() + "<br/><br/>";
+            for(Map.Entry<Integer, String> entry : sentenceBuilder.getDescribeArtifacts().entrySet()) {
+                generatedNaturalLanguage += entry.getValue() + ".";
+                generatedNaturalLanguage += "<br/>";
+            }
             generatedNaturalLanguage += "<br/>";
         }
-        generatedNaturalLanguage += "<br/>";
+
     }
 
     public void diagramDescribeClasses() {
         generatedNaturalLanguage += phrases.getElementDescriptionLabel() + "<br/><br/>";
-
+        System.out.println(sentenceBuilder.getDescribeClass().entrySet().size());
         for (Map.Entry<ClassType, List<String>> entry : sentenceBuilder.sortElementsByName().entrySet()) {
             generatedNaturalLanguage += classTypeTranslator(entry.getKey().getType()) + " " + entry.getKey().getName();
             generatedNaturalLanguage += "<br/>";
@@ -148,6 +156,7 @@ public class SentenceWriter {
                     generatedNaturalLanguage += "<br/>";
                 }
             }
+            System.out.println(sentenceBuilder.getDescribeClassConstraints().get(entry.getKey()));
             if (sentenceBuilder.getDescribeClassConstraints().containsKey(entry.getKey())) {
                 for (String constraint : sentenceBuilder.getDescribeClassConstraints().get(entry.getKey())) {
 
@@ -189,16 +198,17 @@ public class SentenceWriter {
 
     public void diagramDescribeAdditionalNotes() {
 
-        generatedNaturalLanguage += phrases.getAdditionalCommentsLabel() + "<br/><br/>";
-        for (String note : sentenceBuilder.getDiagramAdditionalNotes()) {
+        if (sentenceBuilder.getDiagramAdditionalNotes().size() > 0) {
+            generatedNaturalLanguage += phrases.getAdditionalCommentsLabel() + "<br/><br/>";
+            for (String note : sentenceBuilder.getDiagramAdditionalNotes()) {
 
+                generatedNaturalLanguage += note + ".";
+                generatedNaturalLanguage += "<br/>";
 
-            generatedNaturalLanguage += note + ".";
+            }
             generatedNaturalLanguage += "<br/>";
-
-
         }
-        generatedNaturalLanguage += "<br/>";
+
     }
 
 

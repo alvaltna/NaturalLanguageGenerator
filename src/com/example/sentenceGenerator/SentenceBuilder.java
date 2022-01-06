@@ -314,6 +314,9 @@ public class SentenceBuilder {
             else if (sentence.equals(phrases.getDescribeIsAssociatedWithNo())) {
                 return phrases.getDescribeAggregationHasNo();
             }
+            else if (sentence.equals(phrases.getDescribeExactRelationship())) {
+                return  phrases.getDescribeAggregationMustHave();
+            }
             return sentence;
 
         }
@@ -332,6 +335,9 @@ public class SentenceBuilder {
             else if (sentence.equals(phrases.getDescribeIsAssociatedWithNo())) {
                 return phrases.getDescribeAggregationBelongsToNo();
             }
+            else if (sentence.equals(phrases.getDescribeExactRelationship())) {
+                return phrases.getDescribeAggregationMustBelongTo();
+            }
             return sentence;
         }
 
@@ -339,14 +345,14 @@ public class SentenceBuilder {
 
 
     public void addConnectorNoteLinkInfo(ClassType classType, Connector connector) {
-        if(connector.getNote() != null) {
+        if(connector.getConnectedNote() != null) {
             if(describeClassNotes.containsKey(classType)) {
                 describeClassNotes.get(classType).
-                        add(String.format(phrases.getDescribeNotes(),connector.getNote()));
+                        add(String.format(phrases.getDescribeNotes(),connector.getConnectedNote()));
             }
             else {
                 List<String> notes = new ArrayList<>();
-                notes.add(String.format(phrases.getDescribeNotes() ,connector.getNote()));
+                notes.add(String.format(phrases.getDescribeNotes() ,connector.getConnectedNote()));
                 describeClassNotes.put(classType, notes);
             }
 
@@ -483,6 +489,11 @@ public class SentenceBuilder {
         List<String> sentences = new ArrayList<>();
         String sentence1 = multiplicitySentences.get(0);
         String sentence2 = multiplicitySentences.get(1);
+        if(connector.getType().equals("Aggregation")) {
+
+            sentence1 = multiplicitySentences.get(0);
+            sentence2 = translateToAggregationSentence(multiplicitySentences.get(1), isPart);
+        }
         if(multiplicitySentences.size() > 2) {
             String sentence3 = multiplicitySentences.get(2);
             String sentence4 = multiplicitySentences.get(3);
@@ -899,9 +910,9 @@ public class SentenceBuilder {
         }
         else if(multiplicity.equals("1..*")) {
             multiplicitySentences.add(phrases.getDescribeOneToManyRelationship1());
-            multiplicitySentences.add(phrases.getDescribeMustBeAssociatedWith());
-            multiplicitySentences.add(phrases.getDescribeOneToManyRelationship2());
             multiplicitySentences.add(phrases.getDescribeCanBeAssociatedWith());
+            multiplicitySentences.add(phrases.getDescribeOneToManyRelationship2());
+            multiplicitySentences.add(phrases.getDescribeMustBeAssociatedWith());
             return multiplicitySentences;
         }
         else if(multiplicity.equals("n")) {

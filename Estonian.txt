@@ -15,10 +15,10 @@ Mõni %s %s mitte ühegi %s
 Iga %s %s mitme %s
 Iga %s %s vähemalt ühe %s
 Iga %s %s täpselt %s %s
-Iga %s %s koige rohkem ühe %s
+Iga %s %s kõige rohkem ühe %s
 Mõni %s %s %s
 Iga %s %s kõige rohkem %s %s
-Moni %s %s ühegi %s
+Mõni %s %s ühegi %s
 Iga %s %s kõige rohkem %s %s
 Iga %s %s vähemalt ühe %s
 Iga %s %s kõige rohkem %s %s
@@ -50,15 +50,15 @@ on seotud
 võib olla seotud
 peab olema seotud
 ei ole seotud
-%s on vaja, et teostada %s
+%s on vajalik, et teostada %s
 mitu
 kuni
 SKEEM
-SISSEJUHATAVAD MÄRKUSED
-ARTIFAKTID
+SISSEJUHATAVAD MÄRKMED
+TEHISED
 ELEMENTIDE KIRJELDUSED
-ÜHNDAJAD
-LISAVAD MÄRKUSED
+ÜHENDAJAD
+TÄIENDAVAD MÄRKMED
 Klass
 Liides
 Kasutusjuht

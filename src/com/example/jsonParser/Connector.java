@@ -12,6 +12,7 @@ public class Connector {
     private String endMultiplicity;
     private int connectorId;
     private String connectorName;
+    private String connectedNote;
     private String note;
     private String constraint;
     private String targetRole;
@@ -25,8 +26,8 @@ public class Connector {
 
     public Connector(int sourceId, int endId, String sourceName, String endName, String type, String stereotype,
                      String startMultiplicity, String endMultiplicity, int connectorId, String connectorName,
-                     String note, String constraint, String sourceRole, String targetRole, int aggregationType,
-    String sourceType, String endType) {
+                     String connectedNote, String constraint, String sourceRole, String targetRole, int aggregationType,
+                     String sourceType, String endType, String note) {
         this.sourceId = sourceId;
         this.endId = endId;
         this.sourceName = sourceName;
@@ -37,6 +38,7 @@ public class Connector {
         this.endMultiplicity = endMultiplicity;
         this.connectorId = connectorId;
         this.connectorName = connectorName;
+        this.connectedNote = connectedNote;
         this.note = note;
         this.constraint = constraint;
         this.sourceRole = sourceRole;
@@ -126,12 +128,12 @@ public class Connector {
         this.connectorName = connectorName;
     }
 
-    public String getNote() {
-        return note;
+    public String getConnectedNote() {
+        return connectedNote;
     }
 
-    public void setNote(String note) {
-        this.note = note;
+    public void setConnectedNote(String connectedNote) {
+        this.connectedNote = connectedNote;
     }
 
     public String getConstraint() {
@@ -164,6 +166,14 @@ public class Connector {
 
     public String getSourceType() {
         return sourceType;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 
     public void setSourceType(String sourceType) {

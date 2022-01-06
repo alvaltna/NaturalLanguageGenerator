@@ -1,1 +1,0 @@
-"%JAVA_HOME%\java.exe" -jar NaturalLanguageGenerator.jar

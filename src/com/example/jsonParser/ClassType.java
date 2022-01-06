@@ -1,15 +1,19 @@
 package com.example.jsonParser;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import java.util.Comparator;
 import java.util.List;
 
 public class ClassType extends Element implements Comparable<ClassType> {
 
 
-        private String name;
-        private List<Connector> connectors;
-        private List<Attribute> attributes;
-        private List<Method> methods;
-        private List<Comment> comments;
+    private String name;
+    private List<Connector> connectors;
+    private List<Attribute> attributes;
+    private List<Method> methods;
+
+
 
         public ClassType() {
 
@@ -22,12 +26,14 @@ public class ClassType extends Element implements Comparable<ClassType> {
             this.attributes = attributes;
             this.connectors = connectors;
             this.methods = methods;
-            this.comments = comments;
+
         }
 
         @Override
         public int compareTo(ClassType c1) {
-            return this.name.compareTo(c1.getName());
+            return Comparator.comparing(ClassType::getName)
+                    .thenComparing(ClassType::toString)
+                    .compare(this, c1);
         }
 
 
@@ -65,13 +71,7 @@ public class ClassType extends Element implements Comparable<ClassType> {
             this.methods = methods;
         }
 
-        public List<Comment> getComments() {
-            return comments;
-        }
 
-        public void setComments(List<Comment> comments) {
-            this.comments = comments;
-        }
 }
 
 

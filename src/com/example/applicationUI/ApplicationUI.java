@@ -39,6 +39,7 @@ public class ApplicationUI {
     private Button modifyLanguageButton;
     private Button chooseInputFileButton;
     private Button deleteLanguageButton;
+    private Button aboutButton;
     private JPanel buttonPanel;
     private String inputJsonFilePath;
     private JPanel infoPanel;
@@ -122,7 +123,7 @@ public class ApplicationUI {
             public void actionPerformed(ActionEvent e)
             {   FileNameExtensionFilter filter =
                     new FileNameExtensionFilter("Input Files", "json", "txt");
-                JFileChooser j = new JFileChooser();
+                JFileChooser j = new JFileChooser(new File(sentenceWriter.getParser().getInputJsonString()));
                 j.setFileFilter(filter);
                 j.showSaveDialog(null);
                 inputJsonFilePath = j.getSelectedFile().getAbsolutePath();
@@ -142,6 +143,24 @@ public class ApplicationUI {
 
             }
         });
+    }
+
+    private void createAboutButton() {
+
+        aboutButton = new Button("About");
+        aboutButton.addActionListener( new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                JOptionPane.showMessageDialog(frame,
+                        "<html>"+"A software to generate natural language sentences <br/> " +
+                                "from Enterprise Architect CASE tool. <br/>" +
+                                "Author: Alvar Valtna" + "<br/>" +
+                                "Version: 1.0.0 " + "<html/>");
+            }
+        });
+
     }
 
     private void createDeleteLanguageButton() {
@@ -236,10 +255,12 @@ public class ApplicationUI {
         createDeleteLanguageButton();
         createChooseInputFileButton();
         createModifyLanguageButton();
+        createAboutButton();
         buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         buttonPanel.add(chooseInputFileButton);
         buttonPanel.add(modifyLanguageButton);
         buttonPanel.add(deleteLanguageButton);
+        buttonPanel.add(aboutButton);
         for(String language : usersLanguageFiles) {
             Button languageButton = new Button(language.replace(".txt", ""));
             languageButton.setBackground(Color.WHITE);
@@ -346,9 +367,10 @@ public class ApplicationUI {
                     }
                 }
                 String newLanguage = JOptionPane.showInputDialog(frame,
-                        "<html>"+"If language already exists it will be overwritten!" + "<br/>" +
+                        "<html>"+"If language already exists it will be overwritten! <br/>" +
+                                "Can't save language as 'English'" + "<br/>" +
                                 "New language name: " + "<html/>", null);
-                if (newLanguage != null) {
+                if (newLanguage != null && !newLanguage.equals("") && !newLanguage.equals("English")) {
                     saveNewLanguageToFile(newPhrases, newLanguage);
                 }
 

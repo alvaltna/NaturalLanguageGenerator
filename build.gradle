@@ -32,7 +32,7 @@ dependencies {
 jar {
     manifest {
         attributes(
-                'Main-Class': 'com.example.sentenceGeneratorClass.Main'
+                'Main-Class': 'com.example.Main'
         )
     }
     from {

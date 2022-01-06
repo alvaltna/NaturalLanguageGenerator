@@ -11,6 +11,7 @@ import java.util.List;
 public class Diagram {
 
     private String diagram;
+    private String note;
     private List<Element> elements = new ArrayList<>();
     private int smallestClassYCoord;
     private String generalizationSetsString;
@@ -29,13 +30,14 @@ public class Diagram {
 
     }
 
-    public Diagram(String name, List<ClassType> classes, HashMap<Integer,
+    public Diagram(String name, String note, List<ClassType> classes, HashMap<Integer,
             List<Comment>> comments, List<DiagramNote> diagramNotes,
                    int smallestClassYCoord) {
         this.classes = classes;
         this.comments = comments;
         this.diagramNotes = diagramNotes;
         this.smallestClassYCoord = smallestClassYCoord;
+        this.note = note;
     }
 
     public List<ClassType> getClasses() {
@@ -156,6 +158,14 @@ public class Diagram {
 
     public void setDiagram(String diagram) {
         this.diagram = diagram;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 
     public void divideElementsByType() {

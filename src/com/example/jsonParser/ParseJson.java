@@ -34,7 +34,14 @@ public class ParseJson {
 
     private void getInputJsonStringPathFromFile() {
         try {
-            this.inputJsonString = Files.readString(Path.of("InputJsonFilePath.json"), StandardCharsets.UTF_8);
+            if (Files.readString(Path.of("InputJsonFilePath.json"), StandardCharsets.UTF_8).length() == 0) {
+                this.inputJsonString = System.getProperty("java.io.tmpdir") + "\\file.json";
+            }
+            else {
+                this.inputJsonString = Files.readString(Path.of("InputJsonFilePath.json"), StandardCharsets.UTF_8);
+            }
+
+
         }catch(IOException e) {
             e.printStackTrace();
         }

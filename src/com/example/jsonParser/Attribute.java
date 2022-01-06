@@ -7,18 +7,20 @@ public class Attribute {
     private String initialValue;
     private String lowerBound;
     private String upperBound;
+    private String note;
 
 
     public Attribute() {
 
     }
 
-    public Attribute(String name, String type, String initialValue, String lowerBound, String upperBound) {
+    public Attribute(String name, String type, String initialValue, String lowerBound, String upperBound, String note) {
         this.name = name;
         this.type = type;
         this.initialValue = initialValue;
         this.lowerBound = lowerBound;
         this.upperBound = upperBound;
+        this.note = note;
     }
 
     public String getName() {
@@ -59,5 +61,13 @@ public class Attribute {
 
     public void setUpperBound(String upperBound) {
         this.upperBound = upperBound;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 }
