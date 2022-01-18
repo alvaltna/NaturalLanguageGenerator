@@ -1,62 +1,68 @@
 {"diagram":"Test","note":"", "elements" : [
-{"elementId": "335", "type" : "Class", "name": "Arno", "note": "", 
+{"elementId": "267", "type" : "Interface", "name": "Car controls", "note": "", 
 "connectors" : [
+{
+"sourceId": "269", "endId": "267", "sourceName": "Driver", "endName": "Car controls", "type": "Usage", "stereotype": "", "startMultiplicity": "", "endMultiplicity": "", "connectorId": "160", "connectorName": "", "targetRole": "", "sourceRole": "","note":""
+}, 
+{
+"sourceId": "268", "endId": "267", "sourceName": "Steering wheel", "endName": "Car controls", "type": "Realisation", "stereotype": "", "startMultiplicity": "", "endMultiplicity": "", "connectorId": "164", "connectorName": "", "targetRole": "", "sourceRole": "","note":""
+, "sourceType": "Class", "endType": "Interface"
+}, 
+{
+"sourceId": "278", "endId": "267", "sourceName": "Gas pedal", "endName": "Car controls", "type": "Realisation", "stereotype": "", "startMultiplicity": "", "endMultiplicity": "", "connectorId": "165", "connectorName": "", "targetRole": "", "sourceRole": "","note":""
+, "sourceType": "Class", "endType": "Interface"
+}, 
+{
+"sourceId": "319", "endId": "267", "sourceName": "Gear shift", "endName": "Car controls", "type": "Realisation", "stereotype": "", "startMultiplicity": "", "endMultiplicity": "", "connectorId": "204", "connectorName": "", "targetRole": "", "sourceRole": "","note":""
+, "sourceType": "Class", "endType": "Interface"
+}
 ], 
 "attributes" : [
 ],
 "methods" : [
 ]
 }, 
-{"elementId": "336", "type" : "Class", "name": "Bravo", "note": "", 
+{"elementId": "268", "type" : "Class", "name": "Steering wheel", "note": "", 
 "connectors" : [
+{
+"sourceId": "268", "endId": "267", "sourceName": "Steering wheel", "endName": "Car controls", "type": "Realisation", "stereotype": "", "startMultiplicity": "", "endMultiplicity": "", "connectorId": "164", "connectorName": "", "targetRole": "", "sourceRole": "","note":""
+, "sourceType": "Class", "endType": "Interface"
+}
 ], 
 "attributes" : [
 ],
 "methods" : [
 ]
 }, 
-{"elementId": "337", "type" : "Class", "name": "Charlie", "note": "", 
+{"elementId": "269", "type" : "Class", "name": "Driver", "note": "", 
 "connectors" : [
+{
+"sourceId": "269", "endId": "267", "sourceName": "Driver", "endName": "Car controls", "type": "Usage", "stereotype": "", "startMultiplicity": "", "endMultiplicity": "", "connectorId": "160", "connectorName": "", "targetRole": "", "sourceRole": "","note":""
+}
 ], 
 "attributes" : [
 ],
 "methods" : [
 ]
 }, 
-{"elementId": "338", "type" : "Class", "name": "Charlie1", "note": "", 
+{"elementId": "278", "type" : "Class", "name": "Gas pedal", "note": "", 
 "connectors" : [
+{
+"sourceId": "278", "endId": "267", "sourceName": "Gas pedal", "endName": "Car controls", "type": "Realisation", "stereotype": "", "startMultiplicity": "", "endMultiplicity": "", "connectorId": "165", "connectorName": "", "targetRole": "", "sourceRole": "","note":""
+, "sourceType": "Class", "endType": "Interface"
+}
 ], 
 "attributes" : [
 ],
 "methods" : [
 ]
 }, 
-{"elementId": "339", "type" : "Class", "name": "Class1", "note": "", 
+{"elementId": "319", "type" : "Class", "name": "Gear shift", "note": "", 
 "connectors" : [
-], 
-"attributes" : [
-],
-"methods" : [
-]
-}, 
-{"elementId": "340", "type" : "Class", "name": "Class2", "note": "", 
-"connectors" : [
-], 
-"attributes" : [
-],
-"methods" : [
-]
-}, 
-{"elementId": "341", "type" : "Class", "name": "Class3", "note": "", 
-"connectors" : [
-], 
-"attributes" : [
-],
-"methods" : [
-]
-}, 
-{"elementId": "342", "type" : "Class", "name": "Charlie2", "note": "", 
-"connectors" : [
+{
+"sourceId": "319", "endId": "267", "sourceName": "Gear shift", "endName": "Car controls", "type": "Realisation", "stereotype": "", "startMultiplicity": "", "endMultiplicity": "", "connectorId": "204", "connectorName": "", "targetRole": "", "sourceRole": "","note":""
+, "sourceType": "Class", "endType": "Interface"
+}
 ], 
 "attributes" : [
 ],
@@ -64,6 +70,6 @@
 ]
 }
 ],
-"smallestClassYCoord": "-360",
+"smallestClassYCoord": "-324",
 "generalizationSetsString": "GUID={BAC79F25-507A-4428-8B77-C2059D017622};Name=Isiku roll1;IsCovering=0;IsDisjoint=0;PowerTypeGUID=;169-Töötaja-Isik@GUID={0675D770-BF0D-4261-8945-7B119670D163};Name=Kodaniku roll;IsCovering=1;IsDisjoint=0;PowerTypeGUID=;167-Klient-Kodanik@GUID={BAC79F25-507A-4428-8B77-C2059D017622};Name=Isiku roll1;IsCovering=0;IsDisjoint=0;PowerTypeGUID=;227-Õpilane-Isik@GUID={BAC79F25-507A-4428-8B77-C2059D017622};Name=Isiku roll1;IsCovering=0;IsDisjoint=0;PowerTypeGUID=;166-Kodanik-Isik@GUID={83658791-12A5-4136-B2C1-790DA043168E};Name=Isiku roll;IsCovering=0;IsDisjoint=1;PowerTypeGUID=;214-Tudeng-Isik@GUID={83658791-12A5-4136-B2C1-790DA043168E};Name=Isiku roll;IsCovering=0;IsDisjoint=1;PowerTypeGUID=;215-Arst-Isik@GUID={1B7A470E-E81C-490e-AB79-513889608D01};Name=Isiku roll;IsCovering=1;IsDisjoint=1;PowerTypeGUID=;,GUID={BAC79F25-507A-4428-8B77-C2059D017622};Name=Isiku roll1;IsCovering=0;IsDisjoint=0;PowerTypeGUID=;168-Klient-Isik@"
 }
