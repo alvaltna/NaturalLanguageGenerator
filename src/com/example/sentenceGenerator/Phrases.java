@@ -34,6 +34,9 @@ public class Phrases {
     private String describeClassMethods;
     private String describeEmptyMultiplicity;
     private String describeNotes;
+    private String describeAttributeNotes;
+    private String describeMethodNotes;
+    private String describeElementNotes;
     private String describeConstraints;
     private String describeAggregation1;
     private String describeAggregation2;
@@ -69,6 +72,7 @@ public class Phrases {
     private String elementInterface;
     private String elementUseCase;
     private String elementElement;
+    private String artifact;
     private String numberZero;
     private String numberOne;
     private String numberTwo;
@@ -80,6 +84,7 @@ public class Phrases {
     private String numberEight;
     private String numberNine;
     private String packageName;
+
 
 
 
@@ -126,6 +131,9 @@ public class Phrases {
         this.describeEmptyMultiplicity = "%s is associated with %s";
         this.describeClassMethods = "%s can %s";
         this.describeNotes = "Note: %s";
+        this.describeAttributeNotes = "Attribute note: %s";
+        this.describeMethodNotes = "Method note: %s";
+        this.describeElementNotes = "Element note: %s";
         this.describeConstraints = "Constraint: %s";
         this.describeAggregationComposite = "%s is a part of %s and can't exist without it." +
                 " If %s is deleted, then %s should also be deleted";
@@ -162,7 +170,9 @@ public class Phrases {
         this.elementInterface = "Interface";
         this.elementUseCase = "UseCase";
         this.elementElement = "Element";
+        this.artifact = "Artifact %s";
         this.packageName = "PACKAGE %s";
+
 
 
 
@@ -781,6 +791,38 @@ public class Phrases {
 
     public void setElementElement(String elementElement) {
         this.elementElement = elementElement;
+    }
+
+    public String getDescribeAttributeNotes() {
+        return describeAttributeNotes;
+    }
+
+    public void setDescribeAttributeNotes(String describeAttributeNotes) {
+        this.describeAttributeNotes = describeAttributeNotes;
+    }
+
+    public String getDescribeMethodNotes() {
+        return describeMethodNotes;
+    }
+
+    public void setDescribeMethodNotes(String describeMethodNotes) {
+        this.describeMethodNotes = describeMethodNotes;
+    }
+
+    public String getDescribeElementNotes() {
+        return describeElementNotes;
+    }
+
+    public void setDescribeElementNotes(String describeElementNotes) {
+        this.describeElementNotes = describeElementNotes;
+    }
+
+    public String getArtifact() {
+        return artifact;
+    }
+
+    public void setArtifact(String artifact) {
+        this.artifact = artifact;
     }
 
     public Field[] allPhrases() {

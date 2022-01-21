@@ -12,7 +12,7 @@ public class SentenceBuilder {
     private List<String> diagramIntroductoryNotes = new ArrayList<>();
     private List<String> diagramAdditionalNotes = new ArrayList<>();
     private HashMap<ClassType, List<String>> describeClass = new HashMap<>();
-    private HashMap<Integer, String> classMethods = new HashMap<>();
+    private HashMap<Integer, List<String>> classMethods = new HashMap<>();
     private HashMap<Integer, List<String>> describeConnectors = new HashMap<>();
     private HashMap<ClassType, List<String>> describeClassNotes = new HashMap<>();
     private HashMap<ClassType, List<String>> describeClassConstraints = new HashMap<>();
@@ -20,7 +20,7 @@ public class SentenceBuilder {
     private HashMap<Connector, List<String>> describeConnectorsBothMultiplicities = new HashMap<>();
     private HashMap<Integer, List<String>> describeConnectorDescriptiveSentences = new HashMap<>();
     private HashMap<String, List<String>> describeGeneralizationSets = new HashMap<>();
-    private HashMap<Integer, String> describeArtifacts = new HashMap<>();
+    private HashMap<Integer, List<String>> describeArtifacts = new HashMap<>();
     private HashMap<ClassType, List<String>> elementConnectorSentences = new HashMap<>();
 
 
@@ -79,7 +79,12 @@ public class SentenceBuilder {
 
     public void describeArtifactsInfo() {
         for(Artifact artifact : diagram.getArtifacts()) {
-            describeArtifacts.put(artifact.getElementId(), artifact.getName());
+            List<String> artifactInfo = new ArrayList();
+            artifactInfo.add(String.format(phrases.getArtifact(), artifact.getName()));
+            if (!artifact.getNote().equals("")) {
+                artifactInfo.add(String.format(phrases.getDescribeNotes(), artifact.getNote()));
+            }
+            describeArtifacts.put(artifact.getElementId(), artifactInfo);
         }
     }
 
@@ -149,6 +154,9 @@ public class SentenceBuilder {
 
                 }
 
+                if(!checkIfEmptyString(attribute.getNote())) {
+                    describeClass.get(classType).add(String.format(phrases.getDescribeAttributeNotes(), attribute.getNote()));
+                }
             }
 
     }
@@ -201,6 +209,10 @@ public class SentenceBuilder {
                 addConnectorDependencyInfo(classType, connector);
             }
 
+            if(!connector.getNote().equals("")) {
+                elementConnectorSentences.get(classType).
+                        add(String.format(phrases.getDescribeNotes(), connector.getNote()));
+            }
         }
 
     }
@@ -348,11 +360,11 @@ public class SentenceBuilder {
         if(connector.getConnectedNote() != null) {
             if(describeClassNotes.containsKey(classType)) {
                 describeClassNotes.get(classType).
-                        add(String.format(phrases.getDescribeNotes(),connector.getConnectedNote()));
+                        add(String.format(phrases.getDescribeElementNotes(),connector.getConnectedNote()));
             }
             else {
                 List<String> notes = new ArrayList<>();
-                notes.add(String.format(phrases.getDescribeNotes() ,connector.getConnectedNote()));
+                notes.add(String.format(phrases.getDescribeElementNotes() ,connector.getConnectedNote()));
                 describeClassNotes.put(classType, notes);
             }
 
@@ -960,22 +972,39 @@ public class SentenceBuilder {
     }
 
     public void classMethods(ClassType classType) {
-        String methods = "";
-        if (classType.getMethods().size() >= 1) {
-            for(Method method : classType.getMethods()) {
-                methods += method.getName() + ", ";
+
+
+        for(Method method : classType.getMethods()) {
+
+            if(this.classMethods.containsKey(classType.getElementId())) {
+                this.classMethods.get(classType.getElementId()).
+                        add(String.format(phrases.getDescribeClassMethods(), classType.getName(), method.getName()));
+                if (!checkIfEmptyString(method.getNote())) {
+                    this.classMethods.get(classType.getElementId()).add(
+                            String.format(phrases.getDescribeMethodNotes(), method.getNote()));
+                }
+
             }
-            this.classMethods.put(classType.getElementId(),
-                    String.format(phrases.getDescribeClassMethods(), classType.getName(), methods
-                    .substring(0, methods.length() -2)));
 
+            else {
+
+                List<String> methods = new ArrayList();
+                methods.add(String.format(phrases.getDescribeClassMethods(), classType.getName(), method.getName()));
+                if (!checkIfEmptyString(method.getNote())) {
+                    methods.add(String.format(phrases.getDescribeMethodNotes(), method.getNote()));
+                }
+                this.classMethods.put(classType.getElementId(), methods);
+            }
+        }
+    }
+
+    public boolean checkIfEmptyString(String string) {
+
+        if ( string.equals("")) {
+            return true;
         }
 
-        else {
-
-            this.classMethods.put(classType.getElementId(), methods);
-        }
-
+        return false;
     }
 
     public String digitTranslator(String digit) {
@@ -1096,11 +1125,11 @@ public class SentenceBuilder {
         this.describeConnectorsBothMultiplicities = describeConnectorsBothMultiplicities;
     }
 
-    public HashMap<Integer, String> getClassMethods() {
+    public HashMap<Integer, List<String>> getClassMethods() {
         return classMethods;
     }
 
-    public void setClassMethods(HashMap<Integer, String> classMethods) {
+    public void setClassMethods(HashMap<Integer, List<String>> classMethods) {
         this.classMethods = classMethods;
     }
 
@@ -1145,11 +1174,11 @@ public class SentenceBuilder {
         this.describeConnectorDescriptiveSentences = describeConnectorDescriptiveSentences;
     }
 
-    public HashMap<Integer, String> getDescribeArtifacts() {
+    public HashMap<Integer, List<String>> getDescribeArtifacts() {
         return describeArtifacts;
     }
 
-    public void setDescribeArtifacts(HashMap<Integer, String> describeArtifacts) {
+    public void setDescribeArtifacts(HashMap<Integer, List<String>> describeArtifacts) {
         this.describeArtifacts = describeArtifacts;
     }
 }

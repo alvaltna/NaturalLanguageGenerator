@@ -18,7 +18,7 @@ Iga %s %s täpselt %s %s
 Iga %s %s kõige rohkem ühe %s
 Mõni %s %s %s
 Iga %s %s kõige rohkem %s %s
-Mõni %s %s ühegi %s
+Mõni %s %s ühtegi %s
 Iga %s %s kõige rohkem %s %s
 Iga %s %s vähemalt ühe %s
 Iga %s %s kõige rohkem %s %s
@@ -28,6 +28,9 @@ Iga %s %s vähemalt %s %s
 %s saab %s
 %s on seotud %s
 Märge: %s
+Atribuudi märge: %s
+Meetodi märge: %s
+Elemendi märge: %s
 Piirang: %s
 %s omab %s
 %s kuulub %s
@@ -36,7 +39,7 @@ ei oma
 võib omada
 peab omama
 kuulub
-ei kuulu ühtegi
+ei kuulu
 võib kuuluda
 peab kuuluma
 kui %s
@@ -63,6 +66,7 @@ Klass
 Liides
 Kasutusjuht
 Element
+Tehis %s
 null
 üks
 kaks
@@ -73,5 +77,5 @@ kuus
 seitse
 kaheksa
 üheksa
-Pakett %s
+PAKETT %s
 

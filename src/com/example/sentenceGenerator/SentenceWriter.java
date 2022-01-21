@@ -26,8 +26,11 @@ public class SentenceWriter {
         for(Package eaPackage: packages) {
 
             generatedNaturalLanguage += "----------------------------------------------------------------------------------------------------------" +
-                    String.format(phrases.getPackageName(), eaPackage.getPackageName())
-                    + "<br/><br/>";
+                    String.format(phrases.getPackageName(), eaPackage.getPackageName());
+            if (!eaPackage.getNote().equals("")) {
+                generatedNaturalLanguage += "<br/>" + String.format(phrases.getDescribeNotes(), eaPackage.getNote()) + ".";
+            }
+            generatedNaturalLanguage += "<br/><br/>";
             for(Diagram eaDiagram : eaPackage.getDiagrams()) {
                 this.diagram = eaDiagram;
                 writeDiagramSentences();
@@ -101,10 +104,15 @@ public class SentenceWriter {
 
     public void diagramDescribeSentence() {
 
-        generatedNaturalLanguage += phrases.getDiagramLabel() + " " + diagram.getDiagram() + "<br/><br/>";
-        generatedNaturalLanguage += sentenceBuilder.getDiagramDescribeSentence() + ".";
+        generatedNaturalLanguage += phrases.getDiagramLabel() + " " + diagram.getDiagram();
         generatedNaturalLanguage += "<br/><br/>";
+        if (!diagram.getNote().equals("")) {
+            generatedNaturalLanguage += String.format(phrases.getDescribeNotes(), diagram.getNote()) + ".<br/>" ;
+        }
 
+
+        generatedNaturalLanguage += sentenceBuilder.getDiagramDescribeSentence().trim() + ".";
+        generatedNaturalLanguage += "<br/><br/>";
 
     }
 
@@ -125,76 +133,95 @@ public class SentenceWriter {
         if (sentenceBuilder.getDescribeArtifacts().size() > 0) {
 
             generatedNaturalLanguage += phrases.getArtifactsLabel() + "<br/><br/>";
-            for(Map.Entry<Integer, String> entry : sentenceBuilder.getDescribeArtifacts().entrySet()) {
-                generatedNaturalLanguage += entry.getValue() + ".";
+            for(Map.Entry<Integer, List<String>> entry : sentenceBuilder.getDescribeArtifacts().entrySet()) {
+                for(String sentence : entry.getValue()) {
+                    generatedNaturalLanguage += sentence + ".";
+                    generatedNaturalLanguage += "<br/>";
+                }
                 generatedNaturalLanguage += "<br/>";
             }
             generatedNaturalLanguage += "<br/>";
+
         }
 
     }
 
     public void diagramDescribeClasses() {
-        generatedNaturalLanguage += phrases.getElementDescriptionLabel() + "<br/><br/>";
-        System.out.println(sentenceBuilder.getDescribeClass().entrySet().size());
-        for (Map.Entry<ClassType, List<String>> entry : sentenceBuilder.sortElementsByName().entrySet()) {
-            generatedNaturalLanguage += classTypeTranslator(entry.getKey().getType()) + " " + entry.getKey().getName();
-            generatedNaturalLanguage += "<br/>";
-            for (String sentence : entry.getValue()) {
-                generatedNaturalLanguage += sentence.trim() + ".";
+        if (sentenceBuilder.sortElementsByName().size() > 0) {
+
+            generatedNaturalLanguage += phrases.getElementDescriptionLabel() + "<br/><br/>";
+            for (Map.Entry<ClassType, List<String>> entry : sentenceBuilder.sortElementsByName().entrySet()) {
+                generatedNaturalLanguage += classTypeTranslator(entry.getKey().getType()) + " " + entry.getKey().getName();
                 generatedNaturalLanguage += "<br/>";
+                for (String sentence : entry.getValue()) {
+                    generatedNaturalLanguage += sentence.trim() + ".";
+                    generatedNaturalLanguage += "<br/>";
 
-            }
-            generatedNaturalLanguage += sentenceBuilder.getClassMethods().get(entry.getKey().getElementId());
-            generatedNaturalLanguage += "<br/>";
+                }
 
-            if (sentenceBuilder.getDescribeClassNotes().containsKey(entry.getKey())) {
-
-                for (String note : sentenceBuilder.getDescribeClassNotes().get(entry.getKey())) {
-
-                    generatedNaturalLanguage += note + ".";
+                if(sentenceBuilder.getClassMethods().containsKey(entry.getKey().getElementId())) {
+                    for (String method : sentenceBuilder.getClassMethods().get(entry.getKey().getElementId())) {
+                        generatedNaturalLanguage += method + ".";
+                        generatedNaturalLanguage += "<br/>";
+                    }
                     generatedNaturalLanguage += "<br/>";
                 }
-            }
-            System.out.println(sentenceBuilder.getDescribeClassConstraints().get(entry.getKey()));
-            if (sentenceBuilder.getDescribeClassConstraints().containsKey(entry.getKey())) {
-                for (String constraint : sentenceBuilder.getDescribeClassConstraints().get(entry.getKey())) {
 
-                    generatedNaturalLanguage += constraint + ".";
-                    generatedNaturalLanguage += "<br/>";
+                if (sentenceBuilder.getDescribeClassNotes().containsKey(entry.getKey())) {
+
+                    for (String note : sentenceBuilder.getDescribeClassNotes().get(entry.getKey())) {
+
+                        generatedNaturalLanguage += note + ".";
+                        generatedNaturalLanguage += "<br/>";
+                    }
+
                 }
+                if(!entry.getKey().getNote().equals("")) {
+                    generatedNaturalLanguage+= String.format(phrases.getDescribeElementNotes(),
+                            entry.getKey().getNote()) + ".<br/>";
+                }
+
+                if (sentenceBuilder.getDescribeClassConstraints().containsKey(entry.getKey())) {
+                    for (String constraint : sentenceBuilder.getDescribeClassConstraints().get(entry.getKey())) {
+
+                        generatedNaturalLanguage += constraint + ".";
+                        generatedNaturalLanguage += "<br/>";
+                    }
+                }
+                generatedNaturalLanguage += "<br/>";
             }
-            generatedNaturalLanguage += "<br/>";
+
         }
-
 
     }
 
     public void diagramDescribeConnectorsGroupedByElement() {
 
-        generatedNaturalLanguage += phrases.getConnectorsLabel() + "<br/><br/>";
-        for(Map.Entry<String, List<String>> entry : sentenceBuilder.getDescribeGeneralizationSets().entrySet()) {
-            for(String sentence : entry.getValue()) {
-                generatedNaturalLanguage += sentence + ".";
+        if(sentenceBuilder.sortGroupedConnectorsByElementsName().size() > 0) {
+
+            generatedNaturalLanguage += phrases.getConnectorsLabel() + "<br/><br/>";
+            for(Map.Entry<String, List<String>> entry : sentenceBuilder.getDescribeGeneralizationSets().entrySet()) {
+                for(String sentence : entry.getValue()) {
+                    generatedNaturalLanguage += sentence + ".";
+                    generatedNaturalLanguage += "<br/>";
+                }
                 generatedNaturalLanguage += "<br/>";
             }
-            generatedNaturalLanguage += "<br/>";
-        }
 
-        for(Map.Entry<ClassType, List<String>>  entry : sentenceBuilder.sortGroupedConnectorsByElementsName().entrySet()) {
-            generatedNaturalLanguage += classTypeTranslator(entry.getKey().getType()) + " " + entry.getKey().getName();
-            generatedNaturalLanguage += "<br/>";
-
-            for(String sentence : entry.getValue()) {
-                generatedNaturalLanguage += sentence + ".";
+            for(Map.Entry<ClassType, List<String>>  entry : sentenceBuilder.sortGroupedConnectorsByElementsName().entrySet()) {
+                generatedNaturalLanguage += classTypeTranslator(entry.getKey().getType()) + " " + entry.getKey().getName();
                 generatedNaturalLanguage += "<br/>";
-            }
-            generatedNaturalLanguage += "<br/>";
 
+                for(String sentence : entry.getValue()) {
+                    generatedNaturalLanguage += sentence + ".";
+                    generatedNaturalLanguage += "<br/>";
+                }
+                generatedNaturalLanguage += "<br/>";
+
+            }
         }
+
     }
-
-
 
     public void diagramDescribeAdditionalNotes() {
 
